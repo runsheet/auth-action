@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  oidc:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Configure credentials
+        id: configure-credentials
+        uses: ./
+
+      - name: Echo outputs
+        run: |
+          echo "status: ${{ steps.configure-credentials.outputs.status }}"
+          echo "token: ${{ steps.configure-credentials.outputs.token }}"
+          echo "username: ${{ steps.configure-credentials.outputs.username }}"
+          echo "repo: ${{ steps.configure-credentials.outputs.repo }}"
