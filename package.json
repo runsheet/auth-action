@@ -18,7 +18,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@actions/core": "^1.11.1"
+        "@actions/core": "^1.11.1",
+        "node-fetch": "^3.3.2"
     },
     "devDependencies": {
         "@types/express": "^5.0.3",
