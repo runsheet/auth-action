@@ -1,0 +1,29 @@
+name: "'Configure Runsheet Credentials' Action for GitHub Actions"
+description: "A GitHub Action to configure Runsheet credentials by exchanging a GitHub token for a JWT."
+
+inputs:
+  api_url:
+    description: "API endpoint to exchange token"
+    required: false
+  audience:
+    description: "The audience to use for the OIDC provider"
+    required: false
+    default: "sts.aliyuncs.com"
+
+outputs:
+  status:
+    description: "The status of the credential configuration process"
+  token:
+    description: "The JWT token returned from the API"
+  username:
+    description: "The username associated with the JWT token"
+  repo:
+    description: "The repository associated with the JWT token"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: cloud
+  color: green
