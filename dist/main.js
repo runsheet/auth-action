@@ -55,7 +55,7 @@ async function run() {
     try {
         const audience = core.getInput('audience');
         const idToken = await core.getIDToken(audience);
-        const apiUrl = core.getInput('api_url') || 'https://auth.runsheet.com/api/auth/token';
+        const apiUrl = core.getInput('api_url') || 'https://auth.runsheet.dev/api/auth/token';
         const response = await (0, node_fetch_1.default)(apiUrl, {
             method: 'POST',
             headers: {
